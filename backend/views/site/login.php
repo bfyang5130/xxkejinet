@@ -1,35 +1,37 @@
-<?php
-
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
-
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+<div id="loginbox">            
+    <form id="loginform" class="form-vertical" action="index.html">
+        <div class="control-group normal_text"><h3>内容管理系统</h3></div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on"><i class="icon-user"></i></span><input type="text" placeholder="帐号" />
                 </div>
-
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
-    </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on"><i class="icon-lock"></i></span><input type="password" placeholder="密码" />
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <span class="pull-left"><a href="#" class="flip-link btn btn-warning" id="to-recover">忘记密码?</a></span>
+            <span class="pull-right"><input type="submit" class="btn btn-success" value="登录" /></span>
+        </div>
+    </form>
+    <form id="recoverform" action="#" class="form-vertical">
+        <p class="normal_text">请输入你的邮箱以发送验证码。 <br/><font color="#FF6633">如何找回密码</font></p>
+
+        <div class="controls">
+            <div class="main_input_box">
+                <span class="add-on"><i class="icon-envelope"></i></span><input type="text" placeholder="邮箱地址" />
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <span class="pull-left"><a href="#" class="flip-link btn btn-warning" id="to-login">&laquo; 返回</a></span>
+            <span class="pull-right"><input type="submit" class="btn btn-info" value="发送" /></span>
+        </div>
+    </form>
 </div>

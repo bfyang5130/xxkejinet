@@ -3,21 +3,46 @@
 namespace backend\assets;
 
 use yii\web\AssetBundle;
+use yii\web\View;
 
 /**
  * Main backend application asset bundle.
  */
-class AppAsset extends AssetBundle
-{
+class AppAsset extends AssetBundle {
+
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/bootstrap.min.css',
+        'css/bootstrap-responsive.min.css',
+        'css/maruti-login.css'
     ];
     public $js = [
+        "js/jquery.min.js",
+    ];
+    public $jsOptions = [
+        'position' => View::POS_HEAD
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'yii\widgets\ActiveFormAsset',
+//        'yii\bootstrap\BootstrapAsset',
     ];
+
+    //导入当前页的功能js文件，注意加载顺序，这个应该最后调用
+    public static function addPageScript($view, $jsfile) {
+        if (isset(\Yii::$app->params['dist_version'])) {
+            $jsfile = $jsfile . '?v=' . \Yii::$app->params['dist_version'];
+        }
+        $view->registerJsFile($jsfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);
+    }
+
+    //导入当前页的功能css文件
+    public static function addPageCss($view, $cssfile) {
+        if (isset(\Yii::$app->params['dist_version'])) {
+            $cssfile = $cssfile . '?v=' . \Yii::$app->params['dist_version'];
+        }
+        $view->registerCssFile($cssfile);
+    }
+
 }
