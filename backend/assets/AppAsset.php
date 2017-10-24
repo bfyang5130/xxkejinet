@@ -15,7 +15,6 @@ class AppAsset extends AssetBundle {
     public $css = [
         'css/bootstrap.min.css',
         'css/bootstrap-responsive.min.css',
-        'css/maruti-login.css'
     ];
     public $js = [
         "js/jquery.min.js",
@@ -42,7 +41,7 @@ class AppAsset extends AssetBundle {
         if (isset(\Yii::$app->params['dist_version'])) {
             $cssfile = $cssfile . '?v=' . \Yii::$app->params['dist_version'];
         }
-        $view->registerCssFile($cssfile);
+        $view->registerCssFile($cssfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);
     }
 
 }

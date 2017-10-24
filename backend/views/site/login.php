@@ -1,3 +1,5 @@
+<div id="logo" style="height:150px;">
+</div>
 <div id="loginbox">            
     <form id="loginform" class="form-vertical" action="index.html">
         <div class="control-group normal_text"><h3>内容管理系统</h3></div>

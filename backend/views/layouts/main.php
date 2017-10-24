@@ -1,80 +1,75 @@
 <?php
 
+use yii\helpers\Html;
+use backend\assets\AppAsset;
+
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use backend\assets\AppAsset;
-use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use common\widgets\Alert;
-
 AppAsset::register($this);
+AppAsset::addPageCss($this, '/css/fullcalendar.css');
+AppAsset::addPageCss($this, '/css/maruti-style.css');
+AppAsset::addPageCss($this, '/css/maruti-media.css');
+AppAsset::addPageScript($this, '/js/excanvas.min.js');
+AppAsset::addPageScript($this, '/js/jquery.ui.custom.js');
+AppAsset::addPageScript($this, '/js/bootstrap.min.js');
+AppAsset::addPageScript($this, '/js/jquery.flot.min.js');
+AppAsset::addPageScript($this, '/js/jquery.flot.resize.min.js');
+AppAsset::addPageScript($this, '/js/jquery.peity.min.js');
+AppAsset::addPageScript($this, '/js/fullcalendar.min.js');
+AppAsset::addPageScript($this, '/js/maruti.js');
+AppAsset::addPageScript($this, '/js/maruti.dashboard.js');
+AppAsset::addPageScript($this, '/js/maruti.chat.js');
+$this->title = "寻想网络科技";
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body>
-<?php $this->beginBody() ?>
-
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
+    <head>
+        <?= Html::csrfMetaTags() ?>
+        <title><?= Html::encode($this->title) ?></title>
+        <meta charset="<?= Yii::$app->charset ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <?php $this->head() ?>
+    </head>
+    <body>
+        <?php $this->beginBody() ?>
+        <!-- common_header -->
+        <?= $this->render('common_header') ?>
+        <!-- end-common_header -->
+        <!-- common_menu -->
+        <?= $this->render('common_menu') ?>
+        <!-- end-common_menu -->
         <?= $content ?>
-    </div>
-</div>
+        <!-- common_footer -->
+        <?= $this->render('common_footer') ?>
+        <!-- end-common_footer -->
+        <?php $this->endBody() ?>
+        <script type="text/javascript">
+            // This function is called from the pop-up menus to transfer to
+            // a different page. Ignore if the value returned is a null string:
+            function goPage(newURL) {
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+                // if url is empty, skip the menu dividers and reset the menu selection to default
+                if (newURL != "") {
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+                    // if url is "-", it is this page -- reset the menu:
+                    if (newURL == "-") {
+                        resetMenu();
+                    }
+                    // else, send page to designated URL            
+                    else {
+                        document.location.href = newURL;
+                    }
+                }
+            }
 
-<?php $this->endBody() ?>
-</body>
+            // resets the menu selection upon entry to this page:
+            function resetMenu() {
+                document.gomenu.selector.selectedIndex = 2;
+            }
+        </script>
+    </body>
+
 </html>
 <?php $this->endPage() ?>
