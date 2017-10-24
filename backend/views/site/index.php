@@ -1,20 +1,6 @@
 <div id="content">
     <div id="content-header">
-        <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
-    </div>
-    <div  class="quick-actions_homepage">
-        <ul class="quick-actions">
-            <li> <a href="#"> <i class="icon-dashboard"></i> 站点基版 </a> </li>
-            <li> <a href="#"> <i class="icon-shopping-bag"></i> 我的装备</a> </li>
-            <li> <a href="#"> <i class="icon-web"></i> 内容管理 </a> </li>
-            <li> <a href="#"> <i class="icon-people"></i> 服务中心 </a> </li>
-            <li> <a href="#"> <i class="icon-calendar"></i> 日程规划 </a> </li>
-            <li> <a href="#"> <i class="icon-calendar"></i> 日程规划 </a> </li>
-            <li> <a href="#"> <i class="icon-calendar"></i> 日程规划 </a> </li>
-            <li> <a href="#"> <i class="icon-calendar"></i> 日程规划 </a> </li>
-            <li> <a href="#"> <i class="icon-calendar"></i> 日程规划 </a> </li>
-            <li> <a href="#"> <i class="icon-calendar"></i> 日程规划 </a> </li>
-        </ul>
+        <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 我的站点</a></div>
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
@@ -24,7 +10,7 @@
                         <span class="icon">
                             <i class="icon-file"></i>
                         </span>
-                        <h5>Recent Posts</h5>
+                        <h5>最新用户反馈</h5>
                     </div>
                     <div class="widget-content nopadding">
                         <ul class="recent-posts">

@@ -1,5 +1,5 @@
 <?php
 return [
     'adminEmail' => 'admin@example.com',
-    'dist_version' => '201710241141',
+    'dist_version' => '201710241144',
 ];

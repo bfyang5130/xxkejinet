@@ -21,7 +21,7 @@ a:hover {
 }
 
 #header h1 {
-    background: url("../img/logo.png") no-repeat scroll 0 0 transparent;
+    background: url("../img/logo.png?v=1") no-repeat scroll 0 0 transparent;
     height: 31px;
     left: 15px;
     line-height: 600px;

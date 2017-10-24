@@ -21,14 +21,14 @@ class SiteController extends Controller {
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
+                        [
                         'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
-                    [
-                        'actions' => ['logout', 'index'],
+                        [
+                        'actions' => ['logout', 'index','test'],
                         'allow' => true,
-                        //'roles' => ['@'],
+                    //'roles' => ['@'],
                     ],
                 ],
             ],
@@ -59,6 +59,15 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
         return $this->render('index');
+    }
+
+    /**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionTest() {
+        return $this->render('test');
     }
 
     /**

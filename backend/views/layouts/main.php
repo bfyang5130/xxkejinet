@@ -10,16 +10,9 @@ AppAsset::register($this);
 AppAsset::addPageCss($this, '/css/fullcalendar.css');
 AppAsset::addPageCss($this, '/css/maruti-style.css');
 AppAsset::addPageCss($this, '/css/maruti-media.css');
-AppAsset::addPageScript($this, '/js/excanvas.min.js');
 AppAsset::addPageScript($this, '/js/jquery.ui.custom.js');
 AppAsset::addPageScript($this, '/js/bootstrap.min.js');
-AppAsset::addPageScript($this, '/js/jquery.flot.min.js');
-AppAsset::addPageScript($this, '/js/jquery.flot.resize.min.js');
-AppAsset::addPageScript($this, '/js/jquery.peity.min.js');
-AppAsset::addPageScript($this, '/js/fullcalendar.min.js');
 AppAsset::addPageScript($this, '/js/maruti.js');
-AppAsset::addPageScript($this, '/js/maruti.dashboard.js');
-AppAsset::addPageScript($this, '/js/maruti.chat.js');
 $this->title = "寻想网络科技";
 ?>
 <?php $this->beginPage() ?>

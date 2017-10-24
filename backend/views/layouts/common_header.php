@@ -1,6 +1,6 @@
 <!--Header-part-->
 <div id="header">
-  <h1><a href="http://www.mafiashare.net">Shared on www.MafiaShare.net</a></h1>
+  <h1><a href="http://www.xxkeji.net">寻想网络科技</a></h1>
 </div>
 <!--close-Header-part--> 
 
@@ -23,9 +23,5 @@
     <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">系统设置</span></a></li>
     <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">注销帐号</span></a></li>
   </ul>
-</div>
-<div id="search">
-  <input type="text" placeholder="Search here..."/>
-  <button type="submit" class="tip-left" title="Search"><i class="icon-search icon-white"></i></button>
 </div>
 <!--close-top-Header-menu-->
