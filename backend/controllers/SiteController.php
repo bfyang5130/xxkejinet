@@ -3,35 +3,21 @@
 namespace backend\controllers;
 
 use Yii;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use backend\controllers\BaseController;
 
 /**
  * Site controller
  */
-class SiteController extends Controller {
+class SiteController extends BaseController {
 
     /**
      * @inheritdoc
      */
     public function behaviors() {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                        [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                        [
-                        'actions' => ['logout', 'index','test'],
-                        'allow' => true,
-                    //'roles' => ['@'],
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

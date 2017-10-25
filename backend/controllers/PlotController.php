@@ -3,14 +3,14 @@
 namespace backend\controllers;
 
 use Yii;
-use yii\web\Controller;
+use backend\controllers\BaseController;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 /**
  * Site controller
  */
-class PlotController extends Controller {
+class PlotController extends BaseController {
 
     /**
      * @inheritdoc

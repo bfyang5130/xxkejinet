@@ -54,8 +54,8 @@ use yii\web\IdentityInterface;
  * @property string $occupation
  * @property string $agent_level
  */
-class User extends ActiveRecord implements IdentityInterface {
-
+class Admin extends ActiveRecord implements IdentityInterface {
+    
     public $auth_key ;
 
     /**
@@ -139,7 +139,7 @@ class User extends ActiveRecord implements IdentityInterface {
      * @inheritdoc
      */
     public static function findIdentity($user_id) {
-        return static::findOne(['user_id' => $user_id]);
+        return static::findOne(['user_id' => $user_id,'type_id'=>2]);
     }
 
     /**
@@ -156,7 +156,7 @@ class User extends ActiveRecord implements IdentityInterface {
      * @return static|null
      */
     public static function findByUsername($username) {
-        return static::findOne(['username' => $username]);
+        return static::findOne(['username' => $username,'type_id'=>2]);
     }
 
     /**
@@ -252,5 +252,9 @@ class User extends ActiveRecord implements IdentityInterface {
     public function removePasswordResetToken() {
         $this->password_reset_token = null;
     }
+    
+    public function getAccount(){
+        return $this->hasOne(Account::className(),  ['user_id' => 'user_id']) ;
+    }    
 
 }
