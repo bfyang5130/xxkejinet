@@ -2,7 +2,7 @@
 
 namespace common\services;
 
-use common\service\OssService ;
+use common\services\OssService ;
 use Yii;
 use yii\base\Exception;
 use yii\helpers\VarDumper;
