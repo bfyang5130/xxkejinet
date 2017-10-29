@@ -1,7 +1,7 @@
 <?php
 namespace backend\services ;
 use Yii ;
-use common\service\ColumnService ;
+use common\services\ColumnService ;
 use common\models\User ;
 class RbacService {
     

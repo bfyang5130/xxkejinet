@@ -4,7 +4,7 @@ namespace backend\models\form;
 
 use yii\base\Model;
 use app\models\Column ;
-use common\service\ColumnService ;
+use common\services\ColumnService ;
 use Yii;
 
 /**

@@ -1445,3 +1445,14 @@ form {
 }
 .help-block{color:red;}
 .text-red{color:red;}
+.ui-state-selectd-button{
+    background: #F77825 !important;
+    color: #ffffff !important;
+    cursor: default !important;
+}
+.ui-state-selectd-button a{
+    color: #ffffff !important;
+}
+.disabled{
+    color:#AAAAAA !important;
+}

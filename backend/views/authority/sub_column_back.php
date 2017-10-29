@@ -5,7 +5,6 @@ use yii\helpers\Url;
 use common\services\ColumnService;
 use yii\widgets\LinkPager;
 use backend\assets\AppAsset;
-use yii\widgets\Breadcrumbs;
 
 AppAsset::addPageScript($this, "/js/column.js");
 $module_id = Yii::$app->request->get("module_id");
@@ -24,41 +23,18 @@ $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "栏目列表";
 $this->title = '栏目列表-' . Yii::$app->params['webname'];
 ?>
-<div id="content">
-    <div id="content-header">
-        <?=
-        Breadcrumbs::widget([
-            'tag' => 'div',
-            'options' => ['id' => 'breadcrumb'],
-            'itemTemplate' => "{link}\n", // template for all links
-            'homeLink' => [
-                'label' => '<i class="icon-home"></i> 我的站点',
-                'url' => ['site/index'],
-                'template' => "{link}\n", // template for this link only
-                'title' => '我的站点',
-                'class' => 'tip-bottom',
-                'encode' => false
-            ],
-            'links' => [
-                    [
-                    'label' => '浏览模块',
-                    'url' => ['authority/sub-column']
-                ]
-            ],
-        ]);
-        ?>
-    </div>
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title"> <span class="icon"> <i class="icon-repeat"></i> </span>
-                        <h5><?= $this->title ?></h5>
-                        <a class="pull-right" href="<?= Url::toRoute(["/authority/add-column"]) ?>" title="增加模块"><span class="icon"> <i class="icon-plus"></i> 添加模块</span></a>
-                    </div>
-                    <div class="widget-content">
-                        <table class="table table-bordered table-striped">
-                            <thead>
+<div class="row">
+    <div class="col-md-12">
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <?= $this->render("common_bar")?>
+                <li class="pull-right"><a href="<?= Url::toRoute(["/column/add-column", "module_id" => "column"]) ?>" class="text-muted" title="增加模块"><i class="fa fa-plus"></i></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-bordered table-striped table-condensed">
+                            <tbody>
                                 <tr>
                                     <th>序号</th>
                                     <th>标题</th>
@@ -67,9 +43,7 @@ $this->title = '栏目列表-' . Yii::$app->params['webname'];
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($column_arr['list'] as $value): ?>
+<?php foreach ($column_arr['list'] as $value): ?>
                                     <tr>
                                         <td><?= $value['id'] ?></td>
                                         <td class="center"><?= $value['name'] ?></td>
@@ -82,19 +56,23 @@ $this->title = '栏目列表-' . Yii::$app->params['webname'];
                                                 暂停
                                             <?php else: ?>
                                                 未知
-                                            <?php endif; ?>
+    <?php endif; ?>
                                         </td>
                                         <td class="center">
-                                            <a href="<?= Url::toRoute(["/column/upd-column", "column_id" => $value['id'], "module_id" => "column"]) ?>"><button class="btn btn-warning btn-mini">修改</button></a>
-                                            <button class="btn btn-danger btn-mini del-btn" title="<?= $value['id'] ?>">删除</button>
+                                            <a href="<?= Url::toRoute(["/column/upd-column", "column_id" => $value['id'], "module_id" => "column"]) ?>"><button class="btn btn-primary btn-xs">修改</button></a>
+                                            <button class="btn btn-primary btn-xs del-btn" title="<?= $value['id'] ?>">删除</button>
                                         </td>
                                     </tr>
-                                <?php endforeach; ?>
+<?php endforeach; ?>
                                 <tr>
                                     <td colspan="11" class="text-center">
                                         <?=
-                                        \backend\widgets\BackCommonPage::widget([
-                                            'pagination' => $top_column_arr['pages'],
+                                        LinkPager::widget([
+                                            'firstPageLabel' => '首页',
+                                            'lastPageLabel' => '末页',
+                                            'prevPageLabel' => '上一页',
+                                            'nextPageLabel' => '下一页',
+                                            'pagination' => $column_arr['pages'],
                                             'maxButtonCount' => 8,
                                         ])
                                         ?>
@@ -107,4 +85,4 @@ $this->title = '栏目列表-' . Yii::$app->params['webname'];
             </div>
         </div>
     </div>
-</div>
+</div><!--/span-->

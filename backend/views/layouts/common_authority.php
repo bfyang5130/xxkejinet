@@ -12,26 +12,26 @@ use yii\helpers\Url;
         </li>
         <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>栏目列表</span>　</a>
             <ul>
-                <li><a href="form-common.html">栏目列表</a></li>
-                <li><a href="form-validation.html">添加栏目</a></li>
+                <li><a href="<?= Url::toRoute(['/authority/sub-column']) ?>">栏目列表</a></li>
+                <li><a href="<?= Url::toRoute(['/authority/add-column']) ?>">添加栏目</a></li>
             </ul>
         </li>
         <li class="submenu"> <a href="#"><i class="icon icon-plane"></i> <span>角色列表</span>　</a>
             <ul>
-                <li><a href="form-common.html">角色列表</a></li>
-                <li><a href="form-validation.html">添加角色</a></li>
+                <li><a href="<?= Url::toRoute(['/authority/role']) ?>">角色列表</a></li>
+                <li><a href="<?= Url::toRoute(['/authority/add-role']) ?>">添加角色</a></li>
             </ul>
         </li>
         <li class="submenu"> <a href="#"><i class="icon icon-lock"></i> <span>权限列表</span>　</a>
             <ul>
-                <li><a href="form-common.html">权限列表</a></li>
-                <li><a href="form-validation.html">新增权限</a></li>
+                <li><a href="<?= Url::toRoute(['/authority/permission']) ?>">权限列表</a></li>
+                <li><a href="<?= Url::toRoute(['/authority/add-permission']) ?>">新增权限</a></li>
             </ul>
         </li>
         <li class="submenu"> <a href="#"><i class="icon icon-user"></i> <span>分配角色</span>　</a>
             <ul>
-                <li><a href="form-common.html">分配列表</a></li>
-                <li><a href="form-validation.html">新增分配</a></li>
+                <li><a href="<?= Url::toRoute(['/authority/assignment']) ?>">分配列表</a></li>
+                <li><a href="<?= Url::toRoute(['/authority/add-user-assignment']) ?>">新增分配</a></li>
             </ul>
         </li>
     </ul>

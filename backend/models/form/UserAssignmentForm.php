@@ -3,7 +3,7 @@
 namespace backend\models\form;
 
 use yii\base\Model;
-use backend\service\RbacService ;
+use backend\services\RbacService ;
 use common\models\User ;
 use Yii;
 
