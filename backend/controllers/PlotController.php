@@ -44,5 +44,12 @@ class PlotController extends BaseController {
     public function actionIndex() {
         return $this->render('index');
     }
-
+/**
+     * Displays homepage.
+     *
+     * @return string
+     */
+    public function actionLayoutShop() {
+        return $this->render('layout-shop');
+    }
 }

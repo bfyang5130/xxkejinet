@@ -10,6 +10,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    'language' => 'zh-CN',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -52,7 +53,6 @@ return [
                 "<controller:\w+>/<action:\w+>" => "<controller>/<action>"
             ],
         ],
-        'language' => 'zh-CN',
     ],
     'params' => $params,
 ];

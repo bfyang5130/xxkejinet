@@ -17,7 +17,7 @@ class AppAsset extends AssetBundle {
         'css/bootstrap-responsive.min.css',
     ];
     public $js = [
-        "js/jquery-migrate-1.2.1.js",
+        "js/jquery-migrate-3.0.0.js",
     ];
     public $jsOptions = [
         'position' => View::POS_HEAD
