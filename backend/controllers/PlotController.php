@@ -44,7 +44,8 @@ class PlotController extends BaseController {
     public function actionIndex() {
         return $this->render('index');
     }
-/**
+
+    /**
      * Displays homepage.
      *
      * @return string
@@ -52,4 +53,14 @@ class PlotController extends BaseController {
     public function actionLayoutShop() {
         return $this->render('layout-shop');
     }
+
+    /**
+     * Displays user design.
+     *
+     * @return string
+     */
+    public function actionLayoutDesign() {
+        return $this->render('layout-design');
+    }
+
 }

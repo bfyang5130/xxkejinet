@@ -40,6 +40,16 @@ $this->title = '已用布局-' . Yii::$app->params['webname'];
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-repeat"></i> </span>
+                        <h5><?= $this->title ?></h5>
+                        <a class="pull-right" href="<?= Url::toRoute(["/plot/shop"]) ?>" title="购买布局"><span class="icon"> <i class="icon-plus"></i> 发布设计</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
             <div class="span3">
                 <div class="widget-box">
                     <div class="widget-title">

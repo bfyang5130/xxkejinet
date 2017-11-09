@@ -11,7 +11,7 @@ use yii\helpers\Url;
                 <li><a href="form-validation.html">已购布局</a></li>
                 <li><a href="<?= Url::toRoute(['/plot/layout-shop']) ?>">布局商城</a></li>
                 <li>--前端开发者--</li>
-                <li><a href="form-wizard.html">布局设计</a></li>
+                <li><a href="<?= Url::toRoute(['/plot/layout-design']) ?>">布局设计</a></li>
             </ul>
         </li>
         <li class="submenu"> <a href="#"><i class="icon icon-retweet"></i> <span>我的模块</span>　</a>
