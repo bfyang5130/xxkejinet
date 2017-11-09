@@ -154,4 +154,14 @@ $(document).ready(function () {
         }
 
     });
+    $('.tab-click li a').click(function(){
+        var that=this;
+        var pparent=$(that).parent().parent();
+        $(pparent).find('li').removeClass("active");
+        $(that).parent().addClass("active");
+        var thatIndex=$(pparent).find('li').index($(that).parent());
+        var showIndex=thatIndex-2;
+        $(pparent).parent().next().find('div').removeClass('active');
+        $(pparent).parent().next().find('div').eq(showIndex).addClass('active');
+    });
 });

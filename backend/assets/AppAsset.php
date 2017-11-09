@@ -31,7 +31,8 @@ class AppAsset extends AssetBundle {
     //导入当前页的功能js文件，注意加载顺序，这个应该最后调用
     public static function addPageScript($view, $jsfile) {
         if (isset(\Yii::$app->params['dist_version'])) {
-            $jsfile = $jsfile . '?v=' . \Yii::$app->params['dist_version'];
+            //$jsfile = $jsfile . '?v=' . \Yii::$app->params['dist_version'];
+            $jsfile = $jsfile . '?v=' . time();
         }
         $view->registerJsFile($jsfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);
     }
@@ -39,7 +40,8 @@ class AppAsset extends AssetBundle {
     //导入当前页的功能css文件
     public static function addPageCss($view, $cssfile) {
         if (isset(\Yii::$app->params['dist_version'])) {
-            $cssfile = $cssfile . '?v=' . \Yii::$app->params['dist_version'];
+            //$cssfile = $cssfile . '?v=' . \Yii::$app->params['dist_version'];
+            $cssfile = $cssfile . '?v=' . time();
         }
         $view->registerCssFile($cssfile, [AppAsset::className(), 'depends' => 'backend\assets\AppAsset']);
     }

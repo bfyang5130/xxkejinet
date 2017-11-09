@@ -1459,3 +1459,4 @@ form {
 .layout_base_title{
     width:100px;
 }
+.nav-tabs li a{cursor: pointer;}
