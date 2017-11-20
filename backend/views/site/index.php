@@ -1,89 +1,20 @@
-<div id="content">
-    <div id="content-header">
-        <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 我的站点</a></div>
-    </div>
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title">
-                        <span class="icon">
-                            <i class="icon-file"></i>
-                        </span>
-                        <h5>最新用户反馈</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <ul class="recent-posts">
-                            <li>
-                                <div class="user-thumb"> <img width="40" height="40" alt="User" src="/img/demo/av1.jpg"> </div>
-                                <div class="article-post"> 
-                                    <div class="fr"><a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a></div>
-                                    <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
-                                    <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
-
-                                </div>
-                            </li>
-                            <li>
-                                <div class="user-thumb"> <img width="40" height="40" alt="User" src="/img/demo/av2.jpg"> </div>
-                                <div class="article-post"> 
-                                    <div class="fr"><a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a></div>
-                                    <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
-                                    <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="user-thumb"> <img width="40" height="40" alt="User" src="/img/demo/av3.jpg"> </div>
-                                <div class="article-post">
-                                    <div class="fr"><a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a></div>
-                                    <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
-                                    <p><a href="#">This is a much longer one that will go on for a few lines.Itaffle to pad out the comment.</a> </p>
-
-                                </div>
-
-                            </li><li><button class="btn btn-warning btn-mini">View All</button></li>
-                        </ul> 
-                    </div>
-                </div>
-                <div class="widget-box">
-                    <div class="widget-title">
-                        <span class="icon">
-                            <i class="icon-file"></i>
-                        </span>
-                        <h5>Recent Posts</h5>
-                    </div>
-                    <div class="widget-content nopadding">
-                        <ul class="recent-posts">
-                            <li>
-                                <div class="user-thumb"> <img width="40" height="40" alt="User" src="/img/demo/av1.jpg"> </div>
-                                <div class="article-post"> 
-                                    <div class="fr"><a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a></div>
-                                    <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
-                                    <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
-
-                                </div>
-                            </li>
-                            <li>
-                                <div class="user-thumb"> <img width="40" height="40" alt="User" src="/img/demo/av2.jpg"> </div>
-                                <div class="article-post"> 
-                                    <div class="fr"><a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a></div>
-                                    <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
-                                    <p><a href="#">This is a much longer one that will go on for a few lines.It has multiple paragraphs and is full of waffle to pad out the comment.</a> </p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="user-thumb"> <img width="40" height="40" alt="User" src="/img/demo/av3.jpg"> </div>
-                                <div class="article-post">
-                                    <div class="fr"><a href="#" class="btn btn-primary btn-mini">Edit</a> <a href="#" class="btn btn-success btn-mini">Publish</a> <a href="#" class="btn btn-danger btn-mini">Delete</a></div>
-                                    <span class="user-info"> By: john Deo / Date: 2 Aug 2012 / Time:09:27 AM </span>
-                                    <p><a href="#">This is a much longer one that will go on for a few lines.Itaffle to pad out the comment.</a> </p>
-
-                                </div>
-
-                            </li><li><button class="btn btn-warning btn-mini">View All</button></li>
-                        </ul> 
-                    </div>
-                </div>
-            </div>
+<?php
+use yii\helpers\Url;
+?>
+<div class="tpl-content-wrapper">
+    <ol class="am-breadcrumb">
+        <li><a href="<?= Url::toRoute('/site/index'); ?>" class="am-icon-home">首页</a></li>
+    </ol>
+    <div class="tpl-content-scope">
+        <div class="note note-info">
+            <h3>关于部分功能价格减免公告
+                <span class="close" data-close="note"></span>
+            </h3>
+            <p> 关于平台上线以来,部分功能出现频繁的BUG,系统技术人员在加紧地处理,但还是让部分用户得不到最优质的体验。</p>
+            <p> 鉴于以上原因,本系统部分功能价格从2月份起至九月,下面列出的功能将进行以下调整。</p>
+            <p> 1、个人使用商品数量提高到200个。</p>
+            <p> 2、所有系统级别的模块价格降至七折价格。</p>
+            <p> 3、系统应用生成调为免费使用。</p>
         </div>
     </div>
 </div>

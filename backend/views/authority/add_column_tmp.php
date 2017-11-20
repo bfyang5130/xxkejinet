@@ -29,7 +29,7 @@ $module_id = Yii::$app->request->get("module_id") ;
                         <div class="box-body">
                             <div class="form-group">
                                 <label  class="col-sm-4 control-label">栏目名称：</label>
-                                <?= $form->field($model, 'name')->textInput(); ?>
+                                <?= $form->field($model, 'name')->textInput(['class'=>'abc']); ?>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">所属栏目：</label>

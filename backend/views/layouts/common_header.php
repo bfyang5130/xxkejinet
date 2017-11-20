@@ -1,31 +1,124 @@
 <?php
+
 use yii\helpers\Url;
 ?>
-<!--Header-part-->
-<div id="header">
-  <h1><a href="http://www.xxkeji.net">寻想网络科技</a></h1>
-</div>
-<!--close-Header-part--> 
+<header class="am-topbar am-topbar-inverse admin-header">
+	<div class="am-topbar-brand">
+		<a href="javascript:;" class="tpl-logo">
+			<img src="/assets/img/logo.png" alt="">
+		</a>
+	</div>
+	<div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
 
-<!--top-Header-messaages-->
-<div class="btn-group rightzero"> <a class="top_message tip-left" title="Manage Files"><i class="icon-file"></i></a> <a class="top_message tip-bottom" title="Manage Users"><i class="icon-user"></i></a> <a class="top_message tip-bottom" title="Manage Comments"><i class="icon-comment"></i><span class="label label-important">5</span></a> <a class="top_message tip-bottom" title="Manage Orders"><i class="icon-shopping-cart"></i></a> </div>
-<!--close-top-Header-messaages--> 
+	</div>
 
-<!--top-Header-menu-->
-<div id="user-nav" class="navbar navbar-inverse">
-  <ul class="nav">
-    <li class="" ><a title="" href="#"><i class="icon icon-user"></i> <span class="text">我的信息</span></a></li>
-    <li class=" dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">消息中心</span> <span class="label label-important">5</span> <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a class="sAdd" title="" href="#">新信息</a></li>
-        <li><a class="sInbox" title="" href="#">收件箱</a></li>
-        <li><a class="sOutbox" title="" href="#">发件箱</a></li>
-        <li><a class="sTrash" title="" href="#">trash</a></li>
-      </ul>
-    </li>
-    <li class=""><a title="" href="<?= Url::toRoute(['authority/index']) ?>"><i class="icon icon-exclamation-sign"></i> <span class="text">权限控制</span></a></li>
-    <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">系统设置</span></a></li>
-    <li class=""><a title="" href="<?= Url::toRoute(['login/logout']) ?>"><i class="icon icon-share-alt"></i> <span class="text">注销帐号</span></a></li>
-  </ul>
-</div>
-<!--close-top-Header-menu-->
+	<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+	<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+		<ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+			<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+				<a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+					<span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">5</span></span>
+				</a>
+				<ul class="am-dropdown-content tpl-dropdown-content">
+					<li class="tpl-dropdown-content-external">
+						<h3>你有 <span class="tpl-color-success">5</span> 条提醒</h3><a href="###">全部</a></li>
+					<li class="tpl-dropdown-list-bdbc"><a href="#" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-success"></span> 【预览模块】移动端 查看时 手机、电脑框隐藏。</a>
+						<span class="tpl-dropdown-list-fr">3小时前</span>
+					</li>
+					<li class="tpl-dropdown-list-bdbc"><a href="#" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-check tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 移动端，导航条下边距处理</a>
+						<span class="tpl-dropdown-list-fr">15分钟前</span>
+					</li>
+					<li class="tpl-dropdown-list-bdbc"><a href="#" class="tpl-dropdown-list-fl"><span class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 追加统计代码</a>
+						<span class="tpl-dropdown-list-fr">2天前</span>
+					</li>
+				</ul>
+			</li>
+			<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+				<a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+					<span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+				</a>
+				<ul class="am-dropdown-content tpl-dropdown-content">
+					<li class="tpl-dropdown-content-external">
+						<h3>你有 <span class="tpl-color-danger">9</span> 条新消息</h3><a href="###">全部</a></li>
+					<li>
+						<a href="#" class="tpl-dropdown-content-message">
+							<span class="tpl-dropdown-content-photo">
+								<img src="/assets/img/user02.png" alt=""> </span>
+							<span class="tpl-dropdown-content-subject">
+								<span class="tpl-dropdown-content-from"> 禁言小张 </span>
+								<span class="tpl-dropdown-content-time">10分钟前 </span>
+							</span>
+							<span class="tpl-dropdown-content-font"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </span>
+						</a>
+						<a href="#" class="tpl-dropdown-content-message">
+							<span class="tpl-dropdown-content-photo">
+								<img src="/assets/img/user03.png" alt=""> </span>
+							<span class="tpl-dropdown-content-subject">
+								<span class="tpl-dropdown-content-from"> Steam </span>
+								<span class="tpl-dropdown-content-time">18分钟前</span>
+							</span>
+							<span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </span>
+						</a>
+					</li>
+
+				</ul>
+			</li>
+			<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+				<a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+					<span class="am-icon-calendar"></span> 进度 <span class="am-badge tpl-badge-primary am-round">4</span></span>
+				</a>
+				<ul class="am-dropdown-content tpl-dropdown-content">
+					<li class="tpl-dropdown-content-external">
+						<h3>你有 <span class="tpl-color-primary">4</span> 个任务进度</h3><a href="###">全部</a></li>
+					<li>
+						<a href="javascript:;" class="tpl-dropdown-content-progress">
+							<span class="task">
+								<span class="desc">Amaze UI 用户中心 v1.2 </span>
+								<span class="percent">45%</span>
+							</span>
+							<span class="progress">
+								<div class="am-progress tpl-progress am-progress-striped"><div class="am-progress-bar am-progress-bar-success" style="width:45%"></div></div>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="tpl-dropdown-content-progress">
+							<span class="task">
+								<span class="desc">新闻内容页 </span>
+								<span class="percent">30%</span>
+							</span>
+							<span class="progress">
+								<div class="am-progress tpl-progress am-progress-striped"><div class="am-progress-bar am-progress-bar-secondary" style="width:30%"></div></div>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="tpl-dropdown-content-progress">
+							<span class="task">
+								<span class="desc">管理中心 </span>
+								<span class="percent">60%</span>
+							</span>
+							<span class="progress">
+								<div class="am-progress tpl-progress am-progress-striped"><div class="am-progress-bar am-progress-bar-warning" style="width:60%"></div></div>
+							</span>
+						</a>
+					</li>
+
+				</ul>
+			</li>
+			<li class="am-hide-sm-only"><a href="<?= Url::toRoute(['/authority/index']) ?>" class="tpl-header-list-link"><span class="am-icon-key"></span> 权限设置</a></li>
+			<li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+				<a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+					<span class="tpl-header-list-user-nick">禁言小张</span><span class="tpl-header-list-user-ico"> <img src="/assets/img/user01.png"></span>
+				</a>
+				<ul class="am-dropdown-content">
+					<li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
+					<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+                                        <li><a href="<?= Url::toRoute(['site/logout']) ?>"><span class="am-icon-power-off"></span> 退出</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</header>

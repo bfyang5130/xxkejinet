@@ -63,4 +63,24 @@ class PlotController extends BaseController {
         return $this->render('layout-design');
     }
 
+    /**
+     * Displays user design.
+     *
+     * @return string
+     */
+    public function actionPublishLayout() {
+        $model = new \common\models\Layout(['scenario' => 'publish']);
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->validate()) {
+                // form inputs are valid, do something here
+                return;
+            }
+        }
+
+        return $this->render('publish-layout', [
+                    'model' => $model,
+        ]);
+    }
+
 }

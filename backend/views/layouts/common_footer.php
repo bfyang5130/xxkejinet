@@ -1,3 +1,1 @@
-<div class="row-fluid">
-    <div id="footer" class="span12"> 2014-<?= date('Y') ?> &copy; 寻想网络科技 </div>
-</div>
+<div class="am-text-center qys-c93 qys-fs12">2014-<?= date('Y') ?> &copy; 寻想网络科技</div>

@@ -13,14 +13,16 @@ class AppAsset extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/bootstrap.min.css',
-        'css/bootstrap-responsive.min.css',
+        "assets/css/amazeui.min.css",
+        "assets/css/admin.css",
+        "assets/css/app.css",
     ];
     public $js = [
-        "js/jquery-migrate-3.0.0.js",
+        "assets/js/amazeui.min.js",
+        "assets/js/iscroll.js",
     ];
     public $jsOptions = [
-        'position' => View::POS_HEAD
+        'position' => View::POS_END,
     ];
     public $depends = [
         'yii\web\YiiAsset',

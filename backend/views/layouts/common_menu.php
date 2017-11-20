@@ -2,36 +2,95 @@
 
 use yii\helpers\Url;
 ?>
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> 我的站点</a>
-    <ul>
-        <li class="active"><a href="<?= Url::toRoute(['/site/index']) ?>"><i class="icon icon-home"></i> <span>我的站点</span></a></li>
-        <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>我的布局</span>　</a>
-            <ul>
-                <li><a href="<?= Url::toRoute(['/plot/index']) ?>">站点布局</a></li>
-                <li><a href="form-validation.html">已购布局</a></li>
-                <li><a href="<?= Url::toRoute(['/plot/layout-shop']) ?>">布局商城</a></li>
-                <li>--前端开发者--</li>
-                <li><a href="<?= Url::toRoute(['/plot/layout-design']) ?>">布局设计</a></li>
-            </ul>
-        </li>
-        <li class="submenu"> <a href="#"><i class="icon icon-retweet"></i> <span>我的模块</span>　</a>
-            <ul>
-                <li><a href="form-common.html">站点模块</a></li>
-                <li><a href="form-validation.html">已购模块</a></li>
-                <li><a href="form-wizard.html">模块商城</a></li>
-                <li>--前端开发者--</li>
-                <li><a href="form-wizard.html">后端设计</a></li>
-                <li><a href="form-wizard.html">前端设计</a></li>
-                <li>--模块开发者--</li>
-                <li><a href="form-wizard.html">功能设计</a></li>
-            </ul>
-        </li>
-        <li class="submenu"> <a href="#"><i class="icon icon-th"></i> <span>内容管理</span>　</a>
-            <ul>
-                <li><a href="form-common.html">站点模块</a></li>
-                <li><a href="form-validation.html">已有模块</a></li>
-                <li><a href="form-wizard.html">模块商城</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
+<div class="tpl-left-nav tpl-left-nav-hover">
+    <div class="tpl-left-nav-title">
+        Amaze UI 列表
+    </div>
+    <div class="tpl-left-nav-list">
+        <ul class="tpl-left-nav-menu">
+            <li class="tpl-left-nav-item">
+                <a href="<?= Url::toRoute(['/site/index']) ?>" class="nav-link">
+                    <i class="am-icon-home"></i>
+                    <span>控制台</span>
+                </a>
+            </li>
+            <li class="tpl-left-nav-item">
+                <a href="chart.html" class="nav-link tpl-left-nav-link-list">
+                    <i class="am-icon-bar-chart"></i>
+                    <span>数据表</span>
+                    <i class="tpl-left-nav-content tpl-badge-danger">
+                        12
+                    </i>
+                </a>
+            </li>
+
+            <li class="tpl-left-nav-item">
+                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                    <i class="am-icon-table"></i>
+                    <span>表格</span>
+                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                </a>
+                <ul class="tpl-left-nav-sub-menu">
+                    <li>
+                        <a href="table-font-list.html">
+                            <i class="am-icon-angle-right"></i>
+                            <span>文字表格</span>
+                            <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                        </a>
+
+                        <a href="table-images-list.html">
+                            <i class="am-icon-angle-right"></i>
+                            <span>图片表格</span>
+                            <i class="tpl-left-nav-content tpl-badge-success">
+                                18
+                            </i>
+
+                            <a href="form-news.html">
+                                <i class="am-icon-angle-right"></i>
+                                <span>消息列表</span>
+                                <i class="tpl-left-nav-content tpl-badge-primary">
+                                    5
+                                </i>
+
+
+                                <a href="form-news-list.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>文字列表</span>
+
+                                </a>
+                                </li>
+                                </ul>
+                                </li>
+
+                                <li class="tpl-left-nav-item">
+                                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                                        <i class="am-icon-wpforms"></i>
+                                        <span>表单</span>
+                                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                                    </a>
+                                    <ul class="tpl-left-nav-sub-menu" style="display: block;">
+                                        <li>
+                                            <a href="form-amazeui.html">
+                                                <i class="am-icon-angle-right"></i>
+                                                <span>Amaze UI 表单</span>
+                                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                            </a>
+
+                                            <a href="form-line.html">
+                                                <i class="am-icon-angle-right"></i>
+                                                <span>线条表单</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="tpl-left-nav-item">
+                                    <a href="login.html" class="nav-link tpl-left-nav-link-list">
+                                        <i class="am-icon-key"></i>
+                                        <span>登录</span>
+
+                                    </a>
+                                </li>
+                                </ul>
+                                </div>
+                                </div>
