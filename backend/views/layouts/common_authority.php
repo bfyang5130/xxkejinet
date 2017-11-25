@@ -16,7 +16,7 @@ use yii\helpers\Url;
             </li>
             <li class="tpl-left-nav-item">
                 <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                    <i class="am-icon-bars"></i>
+                    <i class="am-icon-wpforms"></i>
                     <span>模块列表</span>
                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                 </a>

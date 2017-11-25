@@ -27,6 +27,7 @@ $this->title = Yii::$app->params['webname'];
         ])
         ?>
     </div>
+    <p style="color:red;"><?php echo current($model->getFirstErrors()) ?></p>
     <div class="form-actions">
         <span class="pull-right"><input type="submit" class="btn btn-success" value="登录" /></span>
     </div>
