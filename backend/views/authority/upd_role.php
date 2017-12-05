@@ -6,7 +6,7 @@ use yii\widgets\Breadcrumbs;
 
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "更新角色";
-$this->title = '更新角色-' . Yii::$app->params['webname'];
+$this->title = '更新角色';
 $orig_name = Yii::$app->request->get("role_name");
 ?>
 <div id="content">

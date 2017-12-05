@@ -7,7 +7,7 @@ use yii\widgets\Breadcrumbs;
 
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "分配用户角色" ;
-$this->title = '分配用户角色-' . Yii::$app->params['webname'];
+$this->title = '分配用户角色';
 $role_name = Yii::$app->request->get("role_name") ;
 ?>
 <div class="tpl-content-wrapper">

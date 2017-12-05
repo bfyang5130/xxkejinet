@@ -12,7 +12,7 @@ $roles = RbacService::findRoles();
 $i = 1;
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "角色列表";
-$this->title = '角色列表-' . Yii::$app->params['webname'];
+$this->title = '角色列表';
 ?>
 <div class="tpl-content-wrapper">
     <?=

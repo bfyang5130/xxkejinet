@@ -22,7 +22,7 @@ if (empty($pids)) {
 $column_arr = ColumnService::findColumnList($page, null, $pids);
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "栏目列表";
-$this->title = '栏目列表-' . Yii::$app->params['webname'];
+$this->title = '栏目列表';
 ?>
 <div class="tpl-content-wrapper">
     <?=

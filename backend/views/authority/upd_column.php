@@ -4,7 +4,7 @@ use yii\widgets\ActiveForm ;
 use yii\widgets\Breadcrumbs;
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "更新模块或栏目" ;
-$this->title = '更新栏目-' . Yii::$app->params['webname'];
+$this->title = '更新栏目';
 ?>
 <div id="content">
     <div id="content-header">

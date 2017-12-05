@@ -5,7 +5,7 @@ use yii\helpers\Url ;
 use common\models\User ;
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "编辑用户角色" ;
-$this->title = '编辑用户角色-' . Yii::$app->params['webname'];
+$this->title = '编辑用户角色';
 ?>
 <div class="row">
     <div class="col-md-12">

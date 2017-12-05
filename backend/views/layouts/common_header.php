@@ -116,7 +116,7 @@ use yii\helpers\Url;
 				<ul class="am-dropdown-content">
 					<li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
 					<li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-                                        <li><a href="<?= Url::toRoute(['site/logout']) ?>"><span class="am-icon-power-off"></span> 退出</a></li>
+                                        <li><a href="<?= Url::toRoute(['login/logout']) ?>"><span class="am-icon-power-off"></span> 退出</a></li>
 				</ul>
 			</li>
 		</ul>

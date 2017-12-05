@@ -12,7 +12,7 @@ $page = 10;
 $top_column_arr = ColumnService::findColumnList($page, null, 0);
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "模块列表";
-$this->title = '模块列表-' . Yii::$app->params['webname'];
+$this->title = '模块列表';
 ?>
 <div class="tpl-content-wrapper">
     <?=

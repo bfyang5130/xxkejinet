@@ -8,7 +8,7 @@ use yii\widgets\Breadcrumbs;
 
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "增加模块或栏目";
-$this->title = '增加栏目-' . Yii::$app->params['webname'];
+$this->title = '增加栏目';
 $module_id = Yii::$app->request->get("module_id");
 ?>
 <div class="tpl-content-wrapper">

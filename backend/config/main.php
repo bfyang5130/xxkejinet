@@ -14,17 +14,19 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'csrfCookie' => [
+                'httpOnly' => TRUE
+            ],
         ],
         'admin' => [
             'class' => '\yii\web\User',
             'identityClass' => 'common\models\Admin',
-            'loginUrl'=>['login/index'],
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity', 'httpOnly' => true],
+            'loginUrl' => ['login/index'],
+            'enableAutoLogin' => TRUE,
+            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
             'idParam' => '_admin',
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',
         ],
         'log' => [
@@ -33,6 +35,7 @@ return [
                 [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
+                    'maxFileSize'=>1024,
                 ],
             ],
         ],

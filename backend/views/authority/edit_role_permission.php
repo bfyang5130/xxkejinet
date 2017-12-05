@@ -6,7 +6,7 @@ use yii\widgets\Breadcrumbs;
 
 $this->params['breadcrumbs'][] = "模块管理";
 $this->params['display_name'] = "角色分配权限";
-$this->title = '角色分配权限-' . Yii::$app->params['webname'];
+$this->title = '角色分配权限';
 $role_name = Yii::$app->request->get("role_name");
 ?>
 ?>

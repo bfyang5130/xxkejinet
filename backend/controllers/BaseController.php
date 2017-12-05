@@ -15,8 +15,8 @@ class BaseController extends Controller {
     public function beforeAction($action) {
         $controller_name = $action->controller->id;
         $action_name = $action->id;
-        $module_name = $action->controller->module->id ;
-        if ($controller_name == "login" || $controller_name == "tip") {
+        $module_name = $action->controller->module->id;
+        if ($controller_name == "login" || $controller_name == "tip" || $action_name == "error") {
             return parent::beforeAction($action);
         }
         if (Yii::$app->admin->isGuest) {
@@ -29,10 +29,10 @@ class BaseController extends Controller {
             return parent::beforeAction($action);
         }
         //app-backend代表顶级的模块
-        if($module_name=="app-backend"){
-            $permissions_item =  $controller_name . "/" . $action_name;
-        }else{
-            $permissions_item = $module_name ."/" .$controller_name . "/" . $action_name;
+        if ($module_name == "app-backend") {
+            $permissions_item = $controller_name . "/" . $action_name;
+        } else {
+            $permissions_item = $module_name . "/" . $controller_name . "/" . $action_name;
         }
         if (Yii::$app->admin->can($permissions_item) == false) {
             throw new ForbiddenHttpException("您没有权限");
@@ -55,7 +55,7 @@ class BaseController extends Controller {
         $controller_name = $action->controller->id;
 
         $action_name = $action->id;
-        if ($controller_name == "login" || $controller_name == "tip") {
+        if ($controller_name == "login" || $controller_name == "tip"||$action_name == "error") {
             return parent::afterAction($action, $result);
         }
         $newOp = new \common\models\Operate();
