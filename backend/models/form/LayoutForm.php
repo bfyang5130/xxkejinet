@@ -3,135 +3,94 @@
 namespace backend\models\form;
 
 use yii\base\Model;
-use app\models\Column ;
-use common\services\ColumnService ;
+use app\models\Column;
+use common\services\ColumnService;
 use Yii;
 
 /**
  *  栏目表单
  */
 class LayoutForm extends Model {
-    
-    public $id ;
+
+    public $layout_id;
     public $layout_name;
     public $layout_type;
-    public $layout_description ;
-    public $layout_m_pic ;
-    public $layout_source ;
-    public $module_num ;
+    public $layout_description;
+    public $layout_ｂ_pic;
+    public $layout_source;
+    public $module_num;
     public $layout_price;
-    public $params ;
-    public $type ;
 
     /**
      * @inheritdoc
      */
     public function rules() {
         return [
-            [['pid', 'status', 'addtime' ,'order'], 'integer'],
-            [['tag', 'addip'], 'string', 'max' => 50],
-            [['name'], 'string', 'max' => 60],
-            [['name'], 'string', 'max' => 60],
-            [['params','type'], 'string', 'max' => 255],
-            ['id','safe'],
+            [['pid', 'status', 'addtime', 'order'], 'integer'],
+            [['layout_description'], 'string', 'min' => 100, 'message' => '布局简介不能少于100个字符'],
+            [['layout_description'], 'string', 'max' => 500, 'message' => '布局简介最多为500个字符'],
+            [['layout_name'], 'string', 'min' => 5],
+            [['layout_name'], 'string', 'max' => 200],
+            [['layout_type'], 'in', 'range' => [0, 1, 2, 3, 4], 'message' => '错误的布局类型'],
+            [['module_num'], 'integer', 'min' => '1', 'message' => '布局最少拥有1个模块'],
+            [['module_num'], 'integer', 'max' => '2', 'message' => '布局最多拥有20个模块'],
+            [['layout_price'], 'match', 'pattern' => '/(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/', 'message' => '输入资金格式不正确'],
+            
+            ['layout_id', 'safe'],
         ];
     }
 
     public function attributeLabels() {
         return [
-            'id' => 'ID',
-            'name' => '名称',
-            'tag' => '标识',
-            'pid' => '所属模块 1-顶级 2-子级',
-            'status' => '1-启用 2-暂停',
-            'order'=>'顺序',
-            'addtime' => '增加时间',
-            'addip' => '增加的IP',
-            'params'=> '参数',
-            'type'=> '类型',
+            'layout_id' => '布局ID',
+            'layout_name' => '布局名称',
+            'layout_type' => '布局类型',
+            'module_num' => '模块数量',
+            'layout_description' => '布局简述',
+            'layout_ｂ_pic' => '形象图',
+            'layout_source' => '源码',
+            'layout_price' => '定价',
         ];
     }
-    
-    public function getStatusList(){
+
+    public function getLayoutType() {
         return [
-            '1'=>"开启" ,
-            '2'=>'暂停' ,
-        ] ;
-    }        
-    
-    public function getPidList(){
-        $module_id = Yii::$app->request->get("module_id") ;
-        if(empty($module_id)){
-            $column_select = ['0'=>'顶级栏目'] ;
-        }elseif($module_id=="column") {
-            $column_select = [] ;
-            $column_arr = ColumnService::findColumnList(null, 1, 0) ;
-            foreach ($column_arr['list'] as $value){
-                $column_select[$value['id']] = $value['name'];
-            }            
-        }else{
-            $column = ColumnService::findColumnById($module_id) ;
-            $column_select = [$module_id=>$column['name']] ;
-        }
-        return $column_select ;
-    }
-    
-    public function getUptPidList(){
-        $column_arr = ColumnService::findColumnList(null, 1,0) ;
-        $column_list = $column_arr['list'] ;
-        $column_select = ['0'=>'顶级栏目'] ;
-        $sub_column = [] ;
-        foreach ($column_list as $key=>$value){
-            $sub_column[] = $value['id'] ;
-        }        
-        $sub_column_arr = ColumnService::findColumnList(null, 1,$sub_column) ;
-        foreach ($column_list as $key=>$value){
-            $column_select[$value['id']] = $value['name'] ;
-            foreach ($sub_column_arr['list'] as $sub_value){
-                if($value['id']==$sub_value['pid']){
-                    $column_select[$sub_value['id']] = "--".$sub_value['name'] ;
-                }
-            }
-        }              
-        return $column_select ;
+            '0' => "首页",
+            '1' => '类别',
+            '2' => "列表",
+            '3' => '文章',
+            '4' => '专题',
+                ];
     }
 
-    public function getTypeList(){
-        $type_list = [
-            ColumnService::RIGHT_TYPE=>"右侧栏目",
-            ColumnService::SUB_TYPE=>"左侧栏目子菜单",
-        ] ;
-        return $type_list ;
-    }
-    
-    public function addColumn(){
-        if(empty($this->id)){
-            $column = new Column() ;
-            $msg_type = "增加" ;
-        }else{
-            $column = ColumnService::findColumnById($this->id) ;
-            $msg_type = "修改" ;
+    public function addColumn() {
+        if (empty($this->id)) {
+            $column = new Column();
+            $msg_type = "增加";
+        } else {
+            $column = ColumnService::findColumnById($this->id);
+            $msg_type = "修改";
         }
-        $column->pid = $this->pid ;
-        $column->tag = $this->tag ;
-        $column->name = $this->name ;
-        $column->order = $this->order ;
-        $column->status = $this->status ;
-        $column->addtime = time() ; 
-        $column->addip = Yii::$app->getRequest()->userIP ;
-        $column->params = $this->params ;
-        if(empty($this->pid)){
-            $column->type = "" ;
-        }else{
-            $column->type = $this->type ;
+        $column->pid = $this->pid;
+        $column->tag = $this->tag;
+        $column->name = $this->name;
+        $column->order = $this->order;
+        $column->status = $this->status;
+        $column->addtime = time();
+        $column->addip = Yii::$app->getRequest()->userIP;
+        $column->params = $this->params;
+        if (empty($this->pid)) {
+            $column->type = "";
+        } else {
+            $column->type = $this->type;
         }
-        $add_rs = $column->save() ;
-        
-        if($add_rs==true){
-            return ["status"=>true,"msg"=>$msg_type."栏目成功"] ;
-        }else{
-            return ["status"=>false,"msg"=>$msg_type."栏目失败-".  current($column->getFirstErrors())] ;
+        $add_rs = $column->save();
+
+        if ($add_rs == true) {
+            return ["status" => true, "msg" => $msg_type . "栏目成功"];
+        } else {
+            return ["status" => false, "msg" => $msg_type . "栏目失败-" . current($column->getFirstErrors())];
         }
     }
-    
+
 }

@@ -5,7 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\controllers\BaseController;
 use yii\filters\VerbFilter;
-
+use backend\models\form\LayoutForm;
 /**
  * Site controller
  */
@@ -69,18 +69,17 @@ class PlotController extends BaseController {
      * @return string
      */
     public function actionPublishLayout() {
-        $model = new \common\models\Layout(['scenario' => 'publish']);
-
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()) {
-                // form inputs are valid, do something here
-                return;
-            }
+        
+        $model = new LayoutForm();
+        $post_data = Yii::$app->request->post();
+        if ($model->load($post_data) && $model->validate()) {
+            //$add_rs = $model->addColumn();
+            //if ($add_rs['status'] == true) {
+            //    RbacService::addPermissionbyColumn($model->pid, $model->tag);
+            //}
+            return $this->redirect(["tip/index", "msg" => $add_rs['msg'], "url" => Url::toRoute(["/column/index"])]);
         }
-
-        return $this->render('publish-layout', [
-                    'model' => $model,
-        ]);
+        return $this->render("publish_layout", ["model" => $model]);
     }
 
 }
