@@ -26,8 +26,7 @@ class LayoutForm extends Model {
      */
     public function rules() {
         return [
-            [['pid', 'status', 'addtime', 'order'], 'integer'],
-            [['layout_description'], 'string', 'min' => 100, 'message' => '布局简介不能少于100个字符'],
+            [['layout_description'], 'string', 'min' => 10, 'message' => '布局简介不能少于10个字符'],
             [['layout_description'], 'string', 'max' => 500, 'message' => '布局简介最多为500个字符'],
             [['layout_name'], 'string', 'min' => 5],
             [['layout_name'], 'string', 'max' => 200],
@@ -35,7 +34,8 @@ class LayoutForm extends Model {
             [['module_num'], 'integer', 'min' => '1', 'message' => '布局最少拥有1个模块'],
             [['module_num'], 'integer', 'max' => '2', 'message' => '布局最多拥有20个模块'],
             [['layout_price'], 'match', 'pattern' => '/(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/', 'message' => '输入资金格式不正确'],
-            
+            [['layout_ｂ_pic'], 'file', 'extensions' => 'jpg, png,jpeg,gif', 'mimeTypes' => 'image/jpeg, image/png,image/gif,','message' => '只允许上传jpg/png/gif格式图片'],
+            [['layout_source'], 'file', 'extensions' => 'zip', 'maxSize' => 10 * 1024 * 1024,'message' => '只允许上传zip格式d压缩包'],
             ['layout_id', 'safe'],
         ];
     }

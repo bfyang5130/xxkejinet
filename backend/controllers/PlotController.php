@@ -6,6 +6,8 @@ use Yii;
 use backend\controllers\BaseController;
 use yii\filters\VerbFilter;
 use backend\models\form\LayoutForm;
+use yii\web\UploadedFile;
+
 /**
  * Site controller
  */
@@ -69,10 +71,17 @@ class PlotController extends BaseController {
      * @return string
      */
     public function actionPublishLayout() {
-        
+
         $model = new LayoutForm();
         $post_data = Yii::$app->request->post();
         if ($model->load($post_data) && $model->validate()) {
+            $layout_ｂ_pic = UploadedFile::getInstance($model, 'layout_ｂ_pic');
+            $layout_source=UploadedFile::getInstance($model, 'layout_source');
+            $layout_ｂ_pic_obj=$layout_ｂ_pic->tempName;
+            $layout_ｂ_pic_path='xxkeji/layout/layout_b_pic_'.date('YmdHis').rand(10000, 99999).'.'.$layout_ｂ_pic->getExtension();
+            $rs=Yii::$app->Aliyunoss->upload($layout_ｂ_pic_path,$layout_ｂ_pic_obj);
+            print_r($rs);
+            exit;
             //$add_rs = $model->addColumn();
             //if ($add_rs['status'] == true) {
             //    RbacService::addPermissionbyColumn($model->pid, $model->tag);

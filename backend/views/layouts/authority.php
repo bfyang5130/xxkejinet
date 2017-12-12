@@ -30,7 +30,7 @@ $this->title = "寻想网络科技";
         <?php $this->head() ?>
     </head>
 
-    <body data-type="index">
+    <body>
         <?php $this->beginBody() ?>
         <!-- common_header -->
         <?= $this->render('common_header') ?>
