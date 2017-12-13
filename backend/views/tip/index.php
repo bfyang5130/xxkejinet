@@ -2,30 +2,26 @@
 /* @var $this yii\web\View */
 
 use backend\assets\AppAsset;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = '提示-' . Yii::$app->params['webname'];
-AppAsset::addPageScript($this, "/js/tip.js");
 ?>
-<div class="row">
-    <div class="col-md-12">
-        <div class="box box-success">
-            <div class="box-header with-border">
-                <h3 class="box-title">提示</h3>
-                <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div><!-- /.box-tools -->
-            </div><!-- /.box-header -->
-            <div class="box-body">
-                <div class="timeline-body text-center">
-                    <h3><?php echo Yii::$app->request->get("msg") ;?></h3>
-                    <br>
-                </div>
-                <?php if(!empty(Yii::$app->request->get("url"))):?>
+<div class="tpl-content-wrapper">
+    <ol class="am-breadcrumb">
+        <li><a href="<?= Url::toRoute('/site/index'); ?>" class="am-icon-home">首页</a></li>
+    </ol>
+    <div class="tpl-content-scope">
+        <div class="note note-info">
+            <h3>提示
+                <span class="close" data-close="note"></span>
+            </h3>
+            <p> <?= Html::decode(Yii::$app->request->get("msg")) ?></p>
+            <?php if (!empty(Yii::$app->request->get("url"))): ?>
                 <div class="timeline-footer text-center">
-                    <button to_url="<?php echo Yii::$app->request->get("url") ;?>" id="back_btn" class="btn btn-success btn-md" style="width: 20%;">返回</button>
+                    <a href="<?php echo Yii::$app->request->get("url"); ?>"  class="am-btn am-btn-success" style="width: 20%;">返回</a>
                 </div>
-                <?php endif?>
-            </div><!-- /.box-body -->
-        </div>        
+            <?php endif ?>
+        </div>
     </div>
-</div><!--/span-->
+</div>

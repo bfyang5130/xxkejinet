@@ -3,8 +3,7 @@
 namespace backend\models\form;
 
 use yii\base\Model;
-use app\models\Column;
-use common\services\ColumnService;
+use common\models\Layout;
 use Yii;
 
 /**
@@ -34,8 +33,8 @@ class LayoutForm extends Model {
             [['module_num'], 'integer', 'min' => '1', 'message' => '布局最少拥有1个模块'],
             [['module_num'], 'integer', 'max' => '2', 'message' => '布局最多拥有20个模块'],
             [['layout_price'], 'match', 'pattern' => '/(^[1-9]([0-9]+)?(\.[0-9]{1,2})?$)|(^(0){1}$)|(^[0-9]\.[0-9]([0-9])?$)/', 'message' => '输入资金格式不正确'],
-            [['layout_ｂ_pic'], 'file', 'extensions' => 'jpg, png,jpeg,gif', 'mimeTypes' => 'image/jpeg, image/png,image/gif,','message' => '只允许上传jpg/png/gif格式图片'],
-            [['layout_source'], 'file', 'extensions' => 'zip', 'maxSize' => 10 * 1024 * 1024,'message' => '只允许上传zip格式d压缩包'],
+            [['layout_ｂ_pic'], 'file', 'extensions' => 'jpg, png,jpeg,gif', 'mimeTypes' => 'image/jpeg, image/png,image/gif,', 'message' => '只允许上传jpg/png/gif格式图片'],
+            [['layout_source'], 'file', 'extensions' => 'zip', 'maxSize' => 10 * 1024 * 1024, 'message' => '只允许上传zip格式d压缩包'],
             ['layout_id', 'safe'],
         ];
     }
@@ -60,36 +59,29 @@ class LayoutForm extends Model {
             '2' => "列表",
             '3' => '文章',
             '4' => '专题',
-                ];
+        ];
     }
 
-    public function addColumn() {
-        if (empty($this->id)) {
-            $column = new Column();
+    public function save() {
+        if (empty($this->layout_id)) {
+            $layout = new Layout();
             $msg_type = "增加";
         } else {
-            $column = ColumnService::findColumnById($this->id);
+            $layout = Layout::findOne($this->layout_id);
             $msg_type = "修改";
         }
-        $column->pid = $this->pid;
-        $column->tag = $this->tag;
-        $column->name = $this->name;
-        $column->order = $this->order;
-        $column->status = $this->status;
-        $column->addtime = time();
-        $column->addip = Yii::$app->getRequest()->userIP;
-        $column->params = $this->params;
-        if (empty($this->pid)) {
-            $column->type = "";
-        } else {
-            $column->type = $this->type;
-        }
-        $add_rs = $column->save();
+        $layout->setAttributes($this->getAttributes());
+        $layout->layout_staus = 0;
+        $layout->layout_m_pic = $this->layout_ｂ_pic;
+        $layout->layout_b_pic=$layout->layout_m_pic;
+        $layout->layout_author_id = \Yii::$app->admin->identity->user_id;
+        $layout->v_time = $layout->r_time = $layout->add_time = date('Y-m-d H:i:s');
+        $add_rs = $layout->save();
 
         if ($add_rs == true) {
-            return ["status" => true, "msg" => $msg_type . "栏目成功"];
+            return ["status" => true, "msg" => $msg_type . "布局设计成功"];
         } else {
-            return ["status" => false, "msg" => $msg_type . "栏目失败-" . current($column->getFirstErrors())];
+            return ["status" => false, "msg" => $msg_type . "布局设计栏目失败-" . current($layout->getFirstErrors())];
         }
     }
 

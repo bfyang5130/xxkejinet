@@ -1,16 +1,16 @@
 <?php
+
 namespace common\components;
 
 use Yii;
 use yii\base\Component;
 use OSS\OssClient;
 
-class Aliyunoss extends Component
-{
+class Aliyunoss extends Component {
+
     public static $oss;
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $accessKeyId = Yii::$app->params['oss']['accessKeyId'];                 //获取阿里云oss的accessKeyId
         $accessKeySecret = Yii::$app->params['oss']['accessKeySecret'];         //获取阿里云oss的accessKeySecret
@@ -24,15 +24,19 @@ class Aliyunoss extends Component
      * @param $filepath 文件在本地的绝对路径
      * @return bool     上传是否成功
      */
-    public function upload($object, $filepath)
-    {
+    public function upload($object, $filepath) {
         $res = false;
-        $bucket = Yii::$app->params['oss']['bucket'];               //获取阿里云oss的bucket
-        if (self::$oss->uploadFile($bucket, $object, $filepath)) {  //调用uploadFile方法把服务器文件上传到阿里云oss
-            $res = true;
+        $bucket = Yii::$app->params['oss']['bucket'];
+        //获取阿里云oss的bucket
+        try {
+            $result = self::$oss->uploadFile($bucket, $object, $filepath);
+            if ($result) {
+                return true;
+            }
+        } catch (Exception $ex) {
+            \Yii::error($ex->getMessage(), 'application');
+            return $res;
         }
-
-        return $res;
     }
 
     /**
@@ -40,18 +44,20 @@ class Aliyunoss extends Component
      * @param $object 被删除的文件名
      * @return bool   删除是否成功
      */
-    public function delete($object)
-    {
+    public function delete($object) {
         $res = false;
         $bucket = Yii::$app->params['oss']['bucket'];    //获取阿里云oss的bucket
-        if (self::$oss->deleteObject($bucket, $object)){ //调用deleteObject方法把服务器文件上传到阿里云oss
+        if (self::$oss->deleteObject($bucket, $object)) { //调用deleteObject方法把服务器文件上传到阿里云oss
             $res = true;
         }
 
         return $res;
     }
-    public function test(){
+
+    public function test() {
         echo 11;
     }
+
 }
+
 ?>
