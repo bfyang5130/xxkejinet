@@ -1,15 +1,8 @@
 <!--顶级栏目-->
 <?php
 /* @var $this yii\web\View */
-
-use yii\helpers\Url;
-use backend\services\BPlotService;
-use backend\assets\AppAsset;
 use yii\widgets\Breadcrumbs;
 use yii\widgets\ActiveForm;
-
-$page = 10;
-$list_array = BPlotService::findUseExistList($page, null, 0);
 $this->params['breadcrumbs'][] = "布局";
 $this->params['display_name'] = "发布布局";
 $this->title = '发布布局';
