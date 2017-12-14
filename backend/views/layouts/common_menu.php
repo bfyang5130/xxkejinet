@@ -29,7 +29,7 @@ use yii\helpers\Url;
 
                         <a href="<?= Url::toRoute(['/plot/layout-design']) ?>">
                             <i class="am-icon-angle-right"></i>
-                            <span>布局设计</span>
+                            <span>我的设计</span>
                         </a>
                     </li>
                 </ul>
