@@ -4,6 +4,7 @@ namespace backend\models\form;
 
 use yii\base\Model;
 use common\models\Layout;
+use backend\services\BPlotService;
 use Yii;
 
 /**
@@ -53,13 +54,7 @@ class LayoutForm extends Model {
     }
 
     public function getLayoutType() {
-        return [
-            '0' => "首页",
-            '1' => '类别',
-            '2' => "列表",
-            '3' => '文章',
-            '4' => '专题',
-        ];
+        return BPlotService::getLayoutType();
     }
 
     public function save() {
@@ -73,7 +68,7 @@ class LayoutForm extends Model {
         $layout->setAttributes($this->getAttributes());
         $layout->layout_staus = 0;
         $layout->layout_m_pic = $this->layout_ｂ_pic;
-        $layout->layout_b_pic=$layout->layout_m_pic;
+        $layout->layout_b_pic = $layout->layout_m_pic;
         $layout->layout_author_id = \Yii::$app->admin->identity->user_id;
         $layout->v_time = $layout->r_time = $layout->add_time = date('Y-m-d H:i:s');
         $add_rs = $layout->save();

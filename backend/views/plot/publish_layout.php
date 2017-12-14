@@ -68,7 +68,7 @@ $this->title = '发布布局';
                     <div class="am-form-group">
                         <label class="am-u-sm-3 am-form-label">布局类型</label>
                         <div class="am-u-sm-9">
-                            <?= $form->field($model, 'layout_type', ["template" => '{input}{error}'])->dropDownList($model->getLayoutType()); ?>
+                            <?= $form->field($model, 'layout_type', ["template" => '{input}{error}'])->dropDownList($model->getLayoutType(),$options=['data-am-selected'=>"{btnSize: 'sm'}"]); ?>
                             <small>选择你的布局类型</small>
                         </div>
                     </div>
