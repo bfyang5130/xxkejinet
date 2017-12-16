@@ -29,7 +29,26 @@ use yii\helpers\Url;
 
                         <a href="<?= Url::toRoute(['/plot/layout-design']) ?>">
                             <i class="am-icon-angle-right"></i>
-                            <span>我的设计</span>
+                            <span>布局设计</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="tpl-left-nav-item">
+                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                    <i class="am-icon-sign-out"></i>
+                    <span>我的模块</span>
+                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                </a>
+                <ul class="tpl-left-nav-sub-menu">
+                    <li>
+                        <a href="<?= Url::toRoute(['/mod/mod-shop']) ?>">
+                            <i class="am-icon-angle-right"></i>
+                            <span>模块商城</span>
+                        </a>
+                        <a href="<?= Url::toRoute(['/mod/mod-design']) ?>">
+                            <i class="am-icon-angle-right"></i>
+                            <span>模块设计</span>
                         </a>
                     </li>
                 </ul>
