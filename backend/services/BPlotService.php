@@ -42,7 +42,7 @@ class BPlotService {
      * @param type $type
      * @return type
      */
-    public static function findUserDesignLayoutList($limit, $status, $layout_author_id, $type = null) {
+    public static function findUserDesignLayoutList($limit, $status=null, $layout_author_id=null, $type = null) {
         $query = new Query();
         $pages = null;
         $query->select("*")
@@ -50,10 +50,10 @@ class BPlotService {
                 ->orderBy("add_time");
 
         if (isset($status)) {
-            $query->andWhere("status=:status", [":status" => $status]);
+            $query->andWhere("layout_status=:status", [":status" => $status]);
         }
-        if (isset($status)) {
-            $query->andWhere("layout_author_id=:layout_author_id", [":status" => $layout_author_id]);
+        if (isset($layout_author_id)) {
+            $query->andWhere("layout_author_id=:layout_author_id", [":layout_author_id" => $layout_author_id]);
         }
         if (isset($type)) {
             $query->andWhere(["type" => $type]);

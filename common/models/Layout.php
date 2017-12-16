@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $layout_id 布局id
  * @property string $layout_name 布局名称
- * @property int $layout_staus 布局状态
+ * @property int $layout_status 布局状态
  * @property int $layout_type 布局类型
  * @property string $layout_description 布局描述
  * @property string $layout_m_pic 小图
@@ -39,7 +39,7 @@ class Layout extends \yii\db\ActiveRecord
     {
         return [
             [['layout_name', 'layout_source'], 'required'],
-            [['layout_staus', 'layout_type', 'module_num', 'layout_author_id'], 'integer'],
+            [['layout_status', 'layout_type', 'module_num', 'layout_author_id'], 'integer'],
             [['layout_description'], 'string'],
             [['layout_price'], 'number'],
             [['v_time', 'r_time', 'add_time'], 'safe'],
@@ -56,7 +56,7 @@ class Layout extends \yii\db\ActiveRecord
         return [
             'layout_id' => 'Layout ID',
             'layout_name' => 'Layout Name',
-            'layout_staus' => 'Layout Staus',
+            'layout_status' => 'Layout Status',
             'layout_type' => 'Layout Type',
             'layout_description' => 'Layout Description',
             'layout_m_pic' => 'Layout M Pic',

@@ -66,7 +66,7 @@ class LayoutForm extends Model {
             $msg_type = "修改";
         }
         $layout->setAttributes($this->getAttributes());
-        $layout->layout_staus = 0;
+        $layout->layout_status = 0;
         $layout->layout_m_pic = $this->layout_ｂ_pic;
         $layout->layout_b_pic = $layout->layout_m_pic;
         $layout->layout_author_id = \Yii::$app->admin->identity->user_id;

@@ -82,7 +82,7 @@ $this->title = '布局商城';
                                     </div>
                                     <div class="am-btn-toolbar">
                                         <div class="am-btn-group am-btn-group-xs tpl-edit-content-btn">
-                                            <a href="<?= Url::to(["/mod/mod-list",'layout_id'=>$value['layout_id']]) ?>" target="_blank" class="am-btn am-btn-default"><span class="am-icon-pencil-square-o"></span>设计模块</a>
+                                            <a href="<?= Url::to(["/mod/",'layout_id'=>$value['layout_id']]) ?>" target="_blank" class="am-btn am-btn-default"><span class="am-icon-pencil-square-o"></span>设计模块</a>
                                             <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 点赞</button>
                                             <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 购买</button>
                                             <button type="button" class="am-btn am-btn-default am-btn-primary"><span class="am-icon-comment-o"></span> 详情</button>
