@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f897fbf925b1ee034dc0b1d75306ee51",
+    "content-hash": "6780bbe36b8332a3089ebc677764359f",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -68,6 +68,23 @@
             "license": [
                 "MIT"
             ]
+        },
+        {
+            "name": "bower-asset/codemirror",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/codemirror.git",
+                "reference": "0942c22a2762358f6f2216e4cd67f72feab98c4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/codemirror/zipball/0942c22a2762358f6f2216e4cd67f72feab98c4c",
+                "reference": "0942c22a2762358f6f2216e4cd67f72feab98c4c",
+                "shasum": null
+            },
+            "type": "bower-asset",
+            "time": "2017-08-22T13:26:31+00:00"
         },
         {
             "name": "bower-asset/inputmask",
@@ -207,6 +224,106 @@
                 "markdown-extra"
             ],
             "time": "2017-08-22T10:13:04+00:00"
+        },
+        {
+            "name": "conquer/codemirror",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/borodulin/yii2-codemirror.git",
+                "reference": "0217ec8d2b6608b68ceb2e238e1f108b45a7911f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/borodulin/yii2-codemirror/0217ec8d2b6608b68ceb2e238e1f108b45a7911f.zip",
+                "reference": "0217ec8d2b6608b68ceb2e238e1f108b45a7911f",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/codemirror": "*",
+                "conquer/helpers": "~2.0.8",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "conquer\\codemirror\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Borodulin",
+                    "email": "borodulin@gmail.com"
+                }
+            ],
+            "description": "Yii2 codemirror widget",
+            "homepage": "https://github.com/borodulin/yii2-codemirror",
+            "keywords": [
+                "codemirror",
+                "extension",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-05-07T15:38:49+00:00"
+        },
+        {
+            "name": "conquer/helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/borodulin/yii2-helpers.git",
+                "reference": "0b6a1b5a6c18f5b1b4fba3cd279eaec2edf6654c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/borodulin/yii2-helpers/0b6a1b5a6c18f5b1b4fba3cd279eaec2edf6654c.zip",
+                "reference": "0b6a1b5a6c18f5b1b4fba3cd279eaec2edf6654c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": ">=2.0.6"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.12.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "conquer\\helpers\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Borodulin",
+                    "email": "borodulin@gmail.com"
+                }
+            ],
+            "description": "Yii2 helpers",
+            "homepage": "https://github.com/borodulin/yii2-helpers",
+            "keywords": [
+                "extension",
+                "helpers",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-10-27T11:59:47+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",

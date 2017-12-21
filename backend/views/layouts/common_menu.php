@@ -46,10 +46,6 @@ use yii\helpers\Url;
                             <i class="am-icon-angle-right"></i>
                             <span>模块商城</span>
                         </a>
-                        <a href="<?= Url::toRoute(['/mod/mod-design']) ?>">
-                            <i class="am-icon-angle-right"></i>
-                            <span>模块设计</span>
-                        </a>
                     </li>
                 </ul>
             </li>
